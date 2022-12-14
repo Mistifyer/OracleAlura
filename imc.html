@@ -1,0 +1,70 @@
+<meta charset="UTF-8">
+
+<h1> PROGRAMA PARA CALCULAR EL IMC </h1>
+
+<script>
+
+    //funciones mínimas para cada programa.
+    function saltarLinea() {
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function imprimir(frase) {
+        document.write("<big>" + frase + "</big>");
+        saltarLinea();
+    }
+
+    function calcularImc(peso,altura,nombre) {
+
+        imc = peso / (altura * altura);
+        imprimir("El IMC calculado para " + nombre + " es: " + imc);
+
+    }
+
+
+//calculo con datos originales
+    
+    pesoAlejandro = 74
+    alturaAlejandro = 1.68
+    imcAlejandro = pesoAlejandro / (alturaAlejandro * alturaAlejandro)
+
+    imprimir("El IMC de Alejandro es: " + imcAlejandro);
+
+
+    pesoJulio = 71
+    alturaJulio = 1.70
+    imcJulio = pesoJulio / (alturaJulio * alturaJulio)
+
+    imprimir("El IMC de Julio es: " + imcJulio);
+
+
+//calculo usando datos de la funcion calcularImc
+    
+    pesoAlejandro = 74
+    alturaAlejandro = 1.68
+    //imcAlejandro = pesoAlejandro / (alturaAlejandro * alturaAlejandro)
+
+    imcAlejandro = calcularImc(pesoAlejandro, alturaAlejandro);
+    imprimir("El IMC de Alejandro es: " + imcAlejandro);
+
+
+    pesoJulio = 71
+    alturaJulio = 1.70
+    //imcJulio = pesoJulio / (alturaJulio * alturaJulio)
+
+
+    imcJulio = calcularImc(pesoJulio,alturaJulio);
+    imprimir("El IMC de Julio es: " + imcJulio);
+
+
+//calculo aficientando los datos
+
+    calcularImc(74, 1.68,"Alejandro");
+    calcularImc(71,1.70,"Julio");
+    
+
+</script>

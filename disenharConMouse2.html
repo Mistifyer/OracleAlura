@@ -1,0 +1,105 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas");    // variable que conecta a canvas con HTML
+    // variable "pincel" que llama las propiedades de canvas mediante la variable 
+    // que las tiene llamada "pantalla" 
+    var pincel = pantalla.getContext("2d");  
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var puedoDibujar = false;   // declaración de una variable booleana como "false"
+
+
+    // función para dibujar un circulo que solicita un parámetro "evento" 
+    // al momento de llamarla, dicho evento es asociado con el clic del mouse
+    function dibujarCirculo(evento) {
+
+        if(puedoDibujar) {
+            // se asigna el valor a "x,y" del valor de las coordenadas donde se hizo clic con el mouse
+            // ahí se comiensa a dibujar un circulo de radio 5 pixeles
+            var x = evento.pageX - pantalla.offsetLeft;     //declaración de la variable "x" con al valor de la coordenada "x" menos el marco izquierdo
+            var y = evento.pageY - pantalla.offsetTop;      //declaración de la variable "y" con al valor de la coordenada "y" menos el marco izquierdo
+            pincel.fillStyle = color;
+            pincel.beginPath();                 // inicio para dibujar un cilculo, iniciar el Path
+            pincel.arc(x, y, 5, 0, 2 * 3.14);   // solicitud de las propiedades para dibujar el circulo
+            pincel.fill();
+        }
+    }
+
+
+    pantalla.onmousemove = dibujarCirculo; // función "pantalla", evento ".onmousemove", llama a la función "dibujarCirculo"
+
+
+    // función que indica que el mouse puede comenzar a dibujar el circulo
+    // asigna a la variable booleana "puedoDibujar" el valor de "true"
+    function habilitarDibujar() {
+
+        puedoDibujar = true;
+    }
+
+
+    // función que indica que el mouse que no puede a dibujar, que es el valor predeterminado
+    // asigna a la variable booleana "puedoDibujar" el valor de "false"
+    function deshabilitarDibujar() {
+        puedoDibujar = false;
+    }
+
+    // función para crear la paleta de colores en el canvas definido
+    function llamarPaletaDeColores()    {
+        pincel.fillStyle = 'red';
+        pincel.fillRect(0, 0, 50, 50);
+        pincel.fillStyle = 'green';
+        pincel.fillRect(50, 0, 50, 50);
+        pincel.fillStyle = 'blue';
+        pincel.fillRect(100, 0, 50, 50);
+    }
+
+
+    var posicion = 1;
+    var color;      // se declara esta variable por fuera de la función para que su alcance sea general
+    function seleccionarColor(evento) {
+        var x = evento.pageX - pantalla.offsetLeft;     //pos "x" real, resta lo del marco del lado Izquierdo
+        var y = evento.pageY - pantalla.offsetTop;      //pos "y" real, resta lo del marco del lado superior 
+        var colores = ["red", "green", "blue"];
+
+        if ((x > 0) && (x <= 50) && (y > 0) && (y <= 50)) {     // se definen coordenadas para el marco rojo
+            posicion = 0;
+        }
+
+        if ((x > 50) && (x <= 100) && (y > 0) && (y <= 50)) {   // se definen coordenadas para el marco verde
+            posicion = 1;
+        }
+
+        if ((x > 100) && (x <= 150) && (y > 0) && (y <= 50)) {  // se definen coordenadas para el marco azul
+            posicion = 2;
+        }
+
+        color = colores[posicion];  // la variable "color" toma el valor de la posición de la variable "colores"
+        
+        pincel.fillStyle = color;   // solo para probar el color pues el color se define en otra función
+        console.log(posicion, color);
+        //return false;
+    }
+
+
+    // llamar a la paleta de colores
+    llamarPaletaDeColores();
+
+
+    // llamar a la función de seleccionar el color de la paleta al hacer clic
+    pantalla.onclick = seleccionarColor; 
+   
+
+    // si el usuario presiona el botón derecho del mouse sin soltarlo (onmousedown) se invoca a la 
+    // función "habilitarDibujar" que permite a su vez que el mouse dibuje circulos cuando se mueva
+    // en las coordenadas actuales menos el marco
+    pantalla.onmousedown = habilitarDibujar;
+
+
+    // si el usuario deja de presionar el botón derecho del mouse (onmouseup) se invoca a la 
+    // función "deshabilitarDibujar" que interrumpe que el mouse dibuje circulos cuando se mueva
+    pantalla.onmouseup = deshabilitarDibujar;
+
+</script>

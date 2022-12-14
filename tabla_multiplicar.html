@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+<h1>PROGRAMA TABLAS DE MULTIPLICAR</h1>
+
+
+<script>
+
+	function saltarLinea() {
+		document.write("<br>");
+
+	}
+
+	function imprimir(frase) {
+		document.write("<big>" + frase + "</big>");
+		saltarLinea();
+	}
+
+	var contador = 1
+	var tabla = 5
+
+
+	while(contador <=10) {
+		imprimir("5 x " + contador + " = " + tabla*contador)
+		contador = contador + 1
+	}
+
+</script>

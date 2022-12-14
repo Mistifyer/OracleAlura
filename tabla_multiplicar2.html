@@ -1,0 +1,41 @@
+<meta charset="UTF-8">
+
+<h1>PROGRAMA TABLAS DE MULTIPLICAR</h1>
+
+
+<script>
+
+	function saltarLinea() {
+		document.write("<br>");
+
+	}
+
+	function imprimir(frase) {
+		document.write("<big>" + frase + "</big>");
+		saltarLinea();
+	}
+
+	var contador = 1
+	var tabla = 5
+
+
+	imprimir("Tabla de multiplicar con While");
+	document.write("<br>")
+
+	while(contador <=10) {
+		imprimir("5 x " + contador + " = " + tabla*contador);
+		contador = contador + 1;
+	}
+
+
+	document.write("<br>")
+	imprimir("Tabla de multiplicar con For");
+	document.write("<br>")
+
+	for (var contador2 = 1; contador2 <= 10; contador2++) {
+		imprimir("5 x " + contador2 + " = " + tabla*contador2);
+	}
+
+
+
+</script>

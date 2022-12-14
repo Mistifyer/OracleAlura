@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+
+<h1>PROGRAMA</h1>
+
+Crearuna fución con parámetros
+
+<script>
+
+	function saltarLinea() {
+
+		document.write ("<br>");
+		document.write ("<br>");
+		document.write ("<br>");
+
+	}
+
+	//ejemplo de una funcion que requiere un parámetro
+	function imprimir(frase) {
+
+		document.write(frase);
+		//dentro de la funcion imprimir puedo llamar a la funcion saltarLinea
+		saltarLinea();
+
+	}
+	
+	var anho = 2022;
+	var saltoLinea = "<br><br><br>"
+
+	
+	saltarLinea();
+	imprimir("Alejandro tiene: " + (anho-1971) + " años.");
+	imprimir("Hola amigos")
+	
+
+	anho = 2025
+
+	imprimir("Julio tiene: " + (anho-2000) + " años.");
+	//usando la funcion declarada
+	saltarLinea();
+
+	//usando la funcion originar el JS
+	document.write ("Mistifyer tiene: " + (anho-2004) + " años.");
+	//usando la variable declarada saltolinea
+	document.write (saltoLinea);
+	
+
+</script>

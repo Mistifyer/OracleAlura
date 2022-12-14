@@ -1,0 +1,36 @@
+<meta charset="utf-8">
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+	function dibujarCuadrado(x,y,color) {
+
+		var pantalla = document.querySelector("canvas");	
+		var pincel = pantalla.getContext("2d");				
+
+		pincel.fillStyle = color;		
+		pincel.fillRect(x,y,50,50);		
+		pincel.strokeStyle = "black";		//asigna color negro a la propiedad controno "stroke" de la funación "pincel"
+		pincel.strokeRect(x,y,50,50);		//dibuja el controno de un rectángulo con las coordenadas dadas (x,y,ancho,alto)	
+	}
+
+	/*
+	// usando el loop WHILE
+	var contador = 0;
+	while (contador < 600) {
+
+		dibujarCuadrado(contador,0,"red");
+		dibujarCuadrado(contador, 50,"yellow")
+		dibujarCuadrado(contador,100,"green");
+		contador = contador + 50
+	}
+	*/
+
+	// usando el loop FOR
+	for (var contador=0; contador < 600; contador = contador + 50) {
+		dibujarCuadrado(contador,0,"red");
+		dibujarCuadrado(contador, 50,"yellow")
+		dibujarCuadrado(contador,100,"green");
+	}
+
+</script>

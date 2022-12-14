@@ -1,0 +1,41 @@
+<meta charset="UTF-8">
+
+<h1> PROGRAMA PARA ADIVINAR UN NUMERO ENTRE 0 Y 10 </h1>
+
+<script>
+
+    //funciones mínimas para cada programa.
+    function saltarLinea() {
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function imprimir(frase) {
+        document.write("<big>" + frase + "</big>");
+        saltarLinea();
+    }
+
+    //var numeroSistema = 5;
+    var numeroSistema = Math.round(Math.random() * 10)
+    var numeroLanzado = parseInt(prompt("Ingrese un munero entre 0 y 10"));
+
+    if (numeroLanzado == numeroSistema) {
+
+        imprimir("Usted acertó");
+
+    }
+
+    else {
+
+        imprimir("Usted ha errado" + "<br>" + "El numero pensado era: " + numeroSistema);
+
+    }
+       
+    //if (numeroLanzado != numeroSistema) {
+
+    //    imprimir("Usted ha errado" + "<br>" + "El numero pensado era: " + numeroSistema);
+
+    //}
+
+</script>

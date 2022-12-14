@@ -1,0 +1,64 @@
+<meta charset="UTF-8">
+
+<h1>JUGANDO A LA LOTERIA CON 3 INTENTOS</h1>
+
+
+
+<script>
+
+	function saltarLinea() {
+		document.write("<br>");
+
+	}
+
+	function imprimir(frase) {
+		document.write("<big>" + frase + "</big>");
+		saltarLinea();
+	}
+
+
+	var numeroSistema = 0;
+	var numeroEscogido = 0;
+	var intentos = 1
+
+	imprimir("Tienes 3 intentos");
+	
+
+	while (intentos <= 3) {
+		numeroSistema = Math.round(Math.random() * 10);
+		numeroEscogido = parseInt(prompt("Dame el número de la suerte"));
+		saltarLinea();
+		saltarLinea();
+		imprimir("<big>" + "Intento " + intentos + "</big>");
+
+
+		if (numeroEscogido == numeroSistema) {
+			alert("Felicidades, escogiste el número ganador y acertaste en el intento " + intentos);
+			imprimir("Felicidades, escogiste el número ganador");
+			//saltarLinea();
+			imprimir("El número premiado es el " + numeroSistema);
+			break;
+		}
+
+		else {
+			
+			if (numeroEscogido < numeroSistema) {
+				alert("Mas suerte para la próxima. El número que escogiste era menor que el número ganador");
+				imprimir("Mas suerte para la próxima" + "<br>" + "El número que escogiste era menor que el número ganador" + "<br>");
+				//saltarLinea();
+				imprimir("El número premiado es el " + numeroSistema);
+			}
+			else {
+				alert("Mas suerte para la próxima. El número que escogiste era mayor que el número ganador");
+				imprimir("Mas suerte para la próxima" + "<br>" + "El número que escogiste era mayor que el número ganador" + "<br>");
+				//saltarLinea();
+				imprimir("El número premiado es el " + numeroSistema);
+			}
+
+		}
+
+		intentos++;
+	}
+
+
+</script>

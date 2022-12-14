@@ -1,0 +1,33 @@
+<meta charset="utf-8">
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+	
+	var pantalla = document.querySelector("canvas");	//conecta JS con Canvas generando una variable "pantalla"
+	var pincel = pantalla.getContext("2d");				//va a dibujar trayendo el contenido de Canvas en 2 dimenciones
+
+	pincel.fillStyle = "lightgrey";		//propiedad pincel.fillStyle para asignar color de relleno especificado
+	pincel.fillRect(0,0,600,400);						
+
+	pincel.fillStyle = "green";
+	pincel.fillRect(0,0,200,400);
+
+	pincel.fillStyle = "red";
+	pincel.fillRect(400,0,600,400);
+
+	pincel.fillStyle = "darkgray";			
+	pincel.beginPath();					// se asigna el color "yellow" a la propiedad "fillStyle" de la función "pincel"
+	pincel.moveTo(300,200);				// se le asignan coordenada a la propiedad "moveTo" de la función "pincel"
+	pincel.lineTo(200,400);				// trazar una linea desde el punto donde estaba hasta las coordenadas dadas
+	pincel.lineTo(400,400);				
+	pincel.fill();						// se ejecuta el relleno con la función "pincel" mediante la propiedad "fill"
+
+	pincel.fillStyle = "blue";			
+	pincel.beginPath();
+	pincel.arc(300,200,50,0,2*3.14);	// dibujar un circulo con la función "pincel.arc(x,y,ancho,angulo inicial,angulo final)"
+	pincel.fill();
+
+
+</script>
+

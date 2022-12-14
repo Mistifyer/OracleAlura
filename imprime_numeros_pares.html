@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+
+<h1>PROGRAMA - IMPRIME LOS NUMEROS PARES</h1>
+
+<br> <br>
+¿Listo para un ejercicio que te hará romper un poco la cabeza? Usando la instrucción while, imprime todos los números pares del 1 al 100 y al final imprime la palabra "FIN".
+<br><br>
+
+
+<script>
+
+	function saltarLinea() {
+		document.write("<br>");
+
+	}
+
+	function imprimir(frase) {
+		document.write("<big>" + frase + "</big>");
+		saltarLinea();
+	}
+	
+	var contador = 2;
+
+	while (contador <= 100) {
+
+		imprimir(contador);
+		contador = contador + 2;
+
+	}
+
+	imprimir("FIN");
+
+
+
+
+</script>
